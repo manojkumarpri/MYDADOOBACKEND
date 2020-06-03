@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node ./api/index.js",
-    "dev": "node  ./api/index.js",
+    "start": "nodemon --exec babel-node ./api/index.js",
+    "dev": "nodemon --exec babel-node ./api/index.js",
     "test": "SET NODE_ENV=development &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register  mocha ./api/test/test.js --timeout 20000 --exit",
     "build": "rm -rf ./build && babel -d ./build ./api -s",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
-    "@babel/node": "^7.10.1",
+    "@babel/node": "^7.8.7",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
